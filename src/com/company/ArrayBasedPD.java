@@ -1,6 +1,5 @@
 package com.company;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -47,12 +46,16 @@ public class ArrayBasedPD implements PhoneDirectory
     {
         // TODO Auto-generated method stub
         BufferedWriter outputWriter = null;
-        outputWriter = new BufferedWriter(new FileWriter(filename));
-        for (int i = 0; i < x.length; i++)
+        try {
+            outputWriter = new BufferedWriter(new FileWriter(filename));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*for (int i = 0; i < x.length; i++)
         {
             outputWriter.write(Integer.toString(phoneDirectory[i]));
         }
-       /* PrintWriter printWriter = null;
+        PrintWriter printWriter = null;
         try {
             printWriter = new PrintWriter(new FileOutputStream("details1.txt"));
             for (int i = 0; i < phoneDirectory.length; i++) {
